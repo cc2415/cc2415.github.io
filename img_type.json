@@ -1,0 +1,16 @@
+{
+	"data": [{
+		"label": "卡通水果",
+		"value": "fruits",
+		"list": [{
+			"value": "门02",
+			"tempUrl": "https://codeccc.cn/test/door/men_02.png",
+			"src": "https://codeccc.cn/test/door/men_02.png"
+		}, {
+			"label": "门01",
+			"value": "0-388",
+			"tempUrl": "https://codeccc.cn/test/door/men_01.png",
+			"src": "https://codeccc.cn/test/door/men_01.png"
+		}]
+	}]
+}
