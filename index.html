@@ -1,1 +1,201 @@
-<p>静态文件</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0a1f44;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #163f77;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            text-align: center;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        section {
+            margin: 40px;
+            padding: 20px;
+            max-width: 900px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s, opacity 0.6s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #62b6f4;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .skills, .projects, .experience {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #1b3760;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 200px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+            color: #a3e1ff;
+            font-size: 1.1rem;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #163f77;
+            width: 100%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        a {
+            color: #62b6f4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>John Doe - Developer Portfolio</header>
+
+    <section id="intro">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hi, I'm John Doe, a passionate software developer specializing in PHP, web technologies, and cloud solutions. Let's dive into my journey!</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="card">PHP</div>
+            <div class="card">JavaScript</div>
+            <div class="card">HTML & CSS</div>
+            <div class="card">Node.js</div>
+            <div class="card">Docker</div>
+            <div class="card">MySQL</div>
+            <div class="card">Redis</div>
+            <div class="card">Git</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience">
+            <div class="card">
+                <h3>Company A</h3>
+                <p>PHP Developer (2018 - 2021)</p>
+            </div>
+            <div class="card">
+                <h3>Company B</h3>
+                <p>Full Stack Developer (2021 - Present)</p>
+            </div>
+            <div class="card">
+                <h3>Company C</h3>
+                <p>Backend Engineer (2016 - 2018)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Project A</h3>
+                <p>E-commerce site using Laravel, Vue.js, and Stripe.</p>
+            </div>
+            <div class="card">
+                <h3>Project B</h3>
+                <p>Microservices architecture with Docker and Kubernetes.</p>
+            </div>
+            <div class="card">
+                <h3>Project C</h3>
+                <p>Real-time chat app built with Node.js and Redis.</p>
+            </div>
+            <div class="card">
+                <h3>Project D</h3>
+                <p>Personal blog using JAMstack and Next.js.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 John Doe | <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </footer>
+
+    <script>
+        // Animation on Scroll
+        const sections = document.querySelectorAll('section');
+
+        const options = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
